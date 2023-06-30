@@ -1,0 +1,32 @@
+[May 15 23:29:15] 
+[May 15 23:29:15] ==DUPLICATOR INSTALLER BOOTSTRAP v1.5.4==
+[May 15 23:29:15] ----------------------------------------------------
+[May 15 23:29:15] Installer bootstrap start
+[May 15 23:29:15] Manual extract found so not going to extract dup-installer dir
+[May 15 23:29:15] EXTRACT dup-installer dir
+[May 15 23:29:15] Successfully deleted the file /home/e/ezelenu6/prazyicyd.site/public_html/dup-installer/dup-installer-log__[HASH].txt
+[May 15 23:29:15] NOTICE: Didn't need to extract the installer.
+[May 15 23:29:15] Set permissions of dup-installer<br/>
+[May 15 23:29:15] Set permissions of dup-installer/addons<br/>
+[May 15 23:29:15] Set permissions of dup-installer/assets<br/>
+[May 15 23:29:15] Set permissions of dup-installer/classes<br/>
+[May 15 23:29:15] Set permissions of dup-installer/ctrls<br/>
+[May 15 23:29:15] Set permissions of dup-installer/favicon<br/>
+[May 15 23:29:15] Set permissions of dup-installer/libs<br/>
+[May 15 23:29:15] Set permissions of dup-installer/original_files_[HASH]<br/>
+[May 15 23:29:15] Set permissions of dup-installer/src<br/>
+[May 15 23:29:15] Set permissions of dup-installer/templates<br/>
+[May 15 23:29:15] Set permissions of dup-installer/vendor<br/>
+[May 15 23:29:15] Set permissions of dup-installer/dup-archive__[HASH].txt<br/>
+[May 15 23:29:15] Set permissions of dup-installer/dup-database__[HASH].sql<br/>
+[May 15 23:29:15] Set permissions of dup-installer/dup-installer-csrf__[HASH].txt<br/>
+[May 15 23:29:15] Set permissions of dup-installer/dup-installer-notices__[HASH].json<br/>
+[May 15 23:29:15] Set permissions of dup-installer/dup-params__[HASH].json<br/>
+[May 15 23:29:15] Set permissions of dup-installer/dup-scan__[HASH].json<br/>
+[May 15 23:29:15] Set permissions of dup-installer/dup-scanned-dirs__[HASH].txt<br/>
+[May 15 23:29:15] Set permissions of dup-installer/dup-scanned-files__[HASH].txt<br/>
+[May 15 23:29:15] Set permissions of dup-installer/index.php<br/>
+[May 15 23:29:15] Set permissions of dup-installer/main.installer.php<br/>
+[May 15 23:29:15] Set permissions of dup-installer/php_error__[HASH].log<br/>
+[May 15 23:29:15] DONE: No detected errors so redirecting to the main installer. Main Installer URI = http://prazyicyd.site/dup-installer/main.installer.php
+[May 15 23:29:15] [PHP ERR][ISSUE] MSG:Directive 'allow_url_include' is deprecated [CODE:8192|FILE:Unknown|LINE:0]
