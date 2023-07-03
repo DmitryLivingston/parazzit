@@ -20,10 +20,10 @@
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="profile" href="https://gmpg.org/xfn/11">
+    <?/*<link rel="profile" href="https://gmpg.org/xfn/11">*/?>
 
 	<?php wp_head(); ?>
-	<!-- Yandex.Metrika counter -->
+	<?/*<!-- Yandex.Metrika counter -->
 	<script type="text/javascript" >
 	(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
 	m[i].l=1*new Date();
@@ -38,7 +38,7 @@
 	});
 	</script>
 	<noscript><div><img src="https://mc.yandex.ru/watch/45515106" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-	<!-- /Yandex.Metrika counter -->
+	<!-- /Yandex.Metrika counter -->*/?>
 </head>
 <body <?php body_class(); ?>>
 	<header class="header block-container">
