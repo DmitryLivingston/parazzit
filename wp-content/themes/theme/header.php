@@ -39,6 +39,7 @@
 	</script>
 	<noscript><div><img src="https://mc.yandex.ru/watch/45515106" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 	<!-- /Yandex.Metrika counter -->*/?>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
 </head>
 <body <?php body_class(); ?>>
 	<header class="header block-container">

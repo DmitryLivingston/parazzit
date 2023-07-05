@@ -34,6 +34,26 @@ $hero_right_text = get_field('hero_right_text');
 	<div class="hero__banner-button mobile">
 		<a href="#buy" class="hero__banner-button-link button">Купить</a>
 	</div>
+
+	<?php $menu_items = get_field('menu_items');
+	if (is_array($menu_items) && !empty($menu_items)) { ?>
+		<nav class="menu mobile-menu">
+			<ul class="menu__list">
+				<?php foreach ($menu_items as $item) { ?>
+					<li class="menu-item">
+						<a href="<?= $item['link'] ?>" class="menu-item__link">
+							<div class="menu-item__img">
+								<img src="<?= wp_get_attachment_image_url($item['img'], 'full') ?>" alt="">
+							</div>
+							<span class="menu-item__title"><?= $item['name'] ?></span>
+						</a>
+					</li>
+				<?php }
+				unset($item, $img); ?>
+			</ul>
+		</nav>
+	<?php } ?>
+
 	<div class="first-screen__items">
 		<div class="first-screen__item"><img src="/wp-content/themes/theme/assets/img/paw.svg" alt="paw">
 			<p>Эффективная профилактика и лечение широкого спектра заболеваний от глистов</p>
@@ -47,9 +67,9 @@ $hero_right_text = get_field('hero_right_text');
 	</div>
 </section>
 
-<?php $menu_items = get_field('menu_items');
+<?php
 if (is_array($menu_items) && !empty($menu_items)) { ?>
-	<nav class="menu">
+	<nav class="menu desktop-menu">
 		<ul class="menu__list">
 			<?php foreach ($menu_items as $item) { ?>
 				<li class="menu-item">
@@ -155,7 +175,7 @@ $advantages = get_field('advantages');
 							<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
 							<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
 								<span class="cnt_in">
-									<span class="h5">Празицид</span>
+									<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
 									<span class="h4">для кошек и котят до 4 кг</span>
 									<span class="ig">
 										<img src="/wp-content/themes/theme/assets/img/syspensy-goods/adult_cat.png" width="142" height="224" alt="">
@@ -171,7 +191,7 @@ $advantages = get_field('advantages');
 							<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
 							<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
 								<span class="cnt_in">
-									<span class="h5">Празицид</span>
+									<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
 									<span class="h4">капли на холку Празицид для кошек и более 4 кг</span>
 									<span class="ig">
 										<img src="/wp-content/themes/theme/assets/img/syspensy-goods/adult_cat.png" width="142" height="224" alt="">
@@ -187,7 +207,7 @@ $advantages = get_field('advantages');
 							<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
 							<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
 								<span class="cnt_in">
-									<span class="h5">Празицид</span>
+									<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
 									<span class="h4">Капли на холку Празицид для собак и щенков до 5 кг</span>
 									<span class="ig">
 										<img src="/wp-content/themes/theme/assets/img/syspensy-goods/adult_cat.png" width="142" height="224" alt="">
@@ -205,7 +225,7 @@ $advantages = get_field('advantages');
 							<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
 							<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
 								<span class="cnt_in">
-									<span class="h5">Празицид</span>
+									<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
 									<span class="h4">Капли на холку Празицид для собак и щенков до 5-10 кг</span>
 									<span class="ig">
 										<img src="/wp-content/themes/theme/assets/img/syspensy-goods/adult_cat.png" width="142" height="224" alt="">
@@ -221,7 +241,7 @@ $advantages = get_field('advantages');
 							<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
 							<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
 								<span class="cnt_in">
-									<span class="h5">Празицид</span>
+									<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
 									<span class="h4">Капли на холку Празицид для собак и щенков 10-20 кг</span>
 									<span class="ig">
 										<img src="/wp-content/themes/theme/assets/img/syspensy-goods/adult_cat.png" width="142" height="224" alt="">
@@ -237,7 +257,103 @@ $advantages = get_field('advantages');
 					</div>
 				</div>
 			</div>
-
+			<div class="blo_mb">
+				<div class="swiper blo_slr">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="caption">
+								<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
+								<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
+									<span class="cnt_in">
+										<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
+										<span class="h4">для кошек и котят до 4 кг</span>
+										<span class="ig">
+											<img src="/wp-content/themes/theme/assets/img/syspensy-goods/adult_cat.png" width="134" height="216" alt="">
+										</span>
+										<span class="dtt">
+											<span class="vlm">0,32 мл</span>
+											<!-- <span class="vr">Видео-обзор</span> -->
+										</span>
+									</span>
+								</a>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="caption">
+								<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
+								<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
+									<span class="cnt_in">
+										<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
+										<span class="h4">капли на холку Дана Ультра для кошек и более 4 кг</span>
+										<span class="ig">
+											<img src="/wp-content/themes/theme/assets/img/syspensy-goods/adult_cat.png" width="134" height="216" alt="">
+										</span>
+										<span class="dtt">
+											<span class="vlm">0,64 мл</span>
+											<!-- <span class="vr">Видео-обзор</span> -->
+										</span>
+									</span>
+								</a>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="caption">
+								<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
+								<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
+									<span class="cnt_in">
+										<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
+										<span class="h4">Капли на холку Дана Ультра для собак и щенков до 5 кг</span>
+										<span class="ig">
+											<img src="/wp-content/themes/theme/assets/img/syspensy-goods/adult_cat.png" width="134" height="216" alt="">
+										</span>
+										<span class="dtt">
+											<span class="vlm">0,4 мл</span>
+											<!-- <span class="vr">Видео-обзор</span> -->
+										</span>
+									</span>
+								</a>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="caption">
+								<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
+								<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
+									<span class="cnt_in">
+										<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
+										<span class="h4">Капли на холку Дана Ультра для собак и щенков до 5 кг</span>
+										<span class="ig">
+											<img src="/wp-content/themes/theme/assets/img/syspensy-goods/adult_cat.png" width="134" height="216" alt="">
+										</span>
+										<span class="dtt">
+											<span class="vlm">0,4 мл</span>
+											<!-- <span class="vr">Видео-обзор</span> -->
+										</span>
+									</span>
+								</a>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="caption">
+								<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
+								<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
+									<span class="cnt_in">
+										<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
+										<span class="h4">Капли на холку Дана Ультра для собак и щенков до 5 кг</span>
+										<span class="ig">
+											<img src="/wp-content/themes/theme/assets/img/syspensy-goods/adult_cat.png" width="134" height="216" alt="">
+										</span>
+										<span class="dtt">
+											<span class="vlm">0,4 мл</span>
+											<!-- <span class="vr">Видео-обзор</span> -->
+										</span>
+									</span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="nav_blo swiper-pagination"></div>
+				</div>
+			</div>
 		</div>
 	</div>
 
@@ -270,7 +386,7 @@ $advantages = get_field('advantages');
 							<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
 							<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
 								<span class="cnt_in">
-									<span class="h5">Празицид</span>
+									<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
 									<span class="h4">для кошек и котят до 4 кг</span>
 									<span class="ig">
 										<img src="/wp-content/themes/theme/assets/img/complex-neo-goods/cats&kitten_before4.png" width="142" height="224" alt="">
@@ -286,7 +402,7 @@ $advantages = get_field('advantages');
 							<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
 							<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
 								<span class="cnt_in">
-									<span class="h5">Празицид</span>
+									<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
 									<span class="h4">капли на холку Празицид для кошек и более 4 кг</span>
 									<span class="ig">
 										<img src="/wp-content/themes/theme/assets/img/complex-neo-goods/cats&kitten_before4.png" width="142" height="224" alt="">
@@ -302,7 +418,7 @@ $advantages = get_field('advantages');
 							<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
 							<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
 								<span class="cnt_in">
-									<span class="h5">Празицид</span>
+									<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
 									<span class="h4">Капли на холку Празицид для собак и щенков до 5 кг</span>
 									<span class="ig">
 										<img src="/wp-content/themes/theme/assets/img/complex-neo-goods/cats&kitten_before4.png" width="142" height="224" alt="">
@@ -318,7 +434,67 @@ $advantages = get_field('advantages');
 
 				</div>
 			</div>
-
+			<div class="blo_mb">
+				<div class="swiper blo_slr">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="caption">
+								<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
+								<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
+									<span class="cnt_in">
+										<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
+										<span class="h4">для кошек и котят до 4 кг</span>
+										<span class="ig">
+											<img src="/wp-content/themes/theme/assets/img/syspensy-goods/adult_cat.png" width="134" height="216" alt="">
+										</span>
+										<span class="dtt">
+											<span class="vlm">0,32 мл</span>
+											<!-- <span class="vr">Видео-обзор</span> -->
+										</span>
+									</span>
+								</a>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="caption">
+								<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
+								<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
+									<span class="cnt_in">
+										<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
+										<span class="h4">капли на холку Дана Ультра для кошек и более 4 кг</span>
+										<span class="ig">
+											<img src="/wp-content/themes/theme/assets/img/syspensy-goods/adult_cat.png" width="134" height="216" alt="">
+										</span>
+										<span class="dtt">
+											<span class="vlm">0,64 мл</span>
+											<!-- <span class="vr">Видео-обзор</span> -->
+										</span>
+									</span>
+								</a>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="caption">
+								<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
+								<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
+									<span class="cnt_in">
+										<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
+										<span class="h4">Капли на холку Дана Ультра для собак и щенков до 5 кг</span>
+										<span class="ig">
+											<img src="/wp-content/themes/theme/assets/img/syspensy-goods/adult_cat.png" width="134" height="216" alt="">
+										</span>
+										<span class="dtt">
+											<span class="vlm">0,4 мл</span>
+											<!-- <span class="vr">Видео-обзор</span> -->
+										</span>
+									</span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="nav_blo swiper-pagination"></div>
+				</div>
+			</div>
 		</div>
 	</div>
 
@@ -351,7 +527,7 @@ $advantages = get_field('advantages');
 							<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
 							<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
 								<span class="cnt_in">
-									<span class="h5">Празицид</span>
+									<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
 									<span class="h4">для кошек и котят до 4 кг</span>
 									<span class="ig">
 										<img src="/wp-content/themes/theme/assets/img/complex-goods/dog&puppy_before_4kg.png" width="142" height="224" alt="">
@@ -367,7 +543,7 @@ $advantages = get_field('advantages');
 							<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
 							<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
 								<span class="cnt_in">
-									<span class="h5">Празицид</span>
+									<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
 									<span class="h4">капли на холку Празицид для кошек и более 4 кг</span>
 									<span class="ig">
 										<img src="/wp-content/themes/theme/assets/img/complex-goods/dog&puppy_before_4kg.png" width="142" height="224" alt="">
@@ -383,7 +559,7 @@ $advantages = get_field('advantages');
 							<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
 							<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
 								<span class="cnt_in">
-									<span class="h5">Празицид</span>
+									<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
 									<span class="h4">Капли на холку Празицид для собак и щенков до 5 кг</span>
 									<span class="ig">
 										<img src="/wp-content/themes/theme/assets/img/complex-goods/dog&puppy_before_4kg.png" width="142" height="224" alt="">
@@ -401,7 +577,7 @@ $advantages = get_field('advantages');
 							<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
 							<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
 								<span class="cnt_in">
-									<span class="h5">Празицид</span>
+									<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
 									<span class="h4">Капли на холку Празицид для собак и щенков до 5-10 кг</span>
 									<span class="ig">
 										<img src="/wp-content/themes/theme/assets/img/complex-goods/dog&puppy_before_4kg.png" width="142" height="224" alt="">
@@ -417,7 +593,7 @@ $advantages = get_field('advantages');
 							<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
 							<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
 								<span class="cnt_in">
-									<span class="h5">Празицид</span>
+									<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
 									<span class="h4">Капли на холку Празицид для собак и щенков 10-20 кг</span>
 									<span class="ig">
 										<img src="/wp-content/themes/theme/assets/img/complex-goods/dog&puppy_before_4kg.png" width="142" height="224" alt="">
@@ -433,7 +609,7 @@ $advantages = get_field('advantages');
 							<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
 							<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
 								<span class="cnt_in">
-									<span class="h5">Празицид</span>
+									<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
 									<span class="h4">Капли на холку Празицид для собак и щенков 10-20 кг</span>
 									<span class="ig">
 										<img src="/wp-content/themes/theme/assets/img/complex-goods/dog&puppy_before_4kg.png" width="142" height="224" alt="">
@@ -449,7 +625,103 @@ $advantages = get_field('advantages');
 					</div>
 				</div>
 			</div>
-
+			<div class="blo_mb">
+				<div class="swiper blo_slr">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="caption">
+								<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
+								<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
+									<span class="cnt_in">
+										<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
+										<span class="h4">для кошек и котят до 4 кг</span>
+										<span class="ig">
+											<img src="/wp-content/themes/theme/assets/img/syspensy-goods/adult_cat.png" width="134" height="216" alt="">
+										</span>
+										<span class="dtt">
+											<span class="vlm">0,32 мл</span>
+											<!-- <span class="vr">Видео-обзор</span> -->
+										</span>
+									</span>
+								</a>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="caption">
+								<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
+								<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
+									<span class="cnt_in">
+										<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
+										<span class="h4">капли на холку Дана Ультра для кошек и более 4 кг</span>
+										<span class="ig">
+											<img src="/wp-content/themes/theme/assets/img/syspensy-goods/adult_cat.png" width="134" height="216" alt="">
+										</span>
+										<span class="dtt">
+											<span class="vlm">0,64 мл</span>
+											<!-- <span class="vr">Видео-обзор</span> -->
+										</span>
+									</span>
+								</a>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="caption">
+								<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
+								<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
+									<span class="cnt_in">
+										<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
+										<span class="h4">Капли на холку Дана Ультра для собак и щенков до 5 кг</span>
+										<span class="ig">
+											<img src="/wp-content/themes/theme/assets/img/syspensy-goods/adult_cat.png" width="134" height="216" alt="">
+										</span>
+										<span class="dtt">
+											<span class="vlm">0,4 мл</span>
+											<!-- <span class="vr">Видео-обзор</span> -->
+										</span>
+									</span>
+								</a>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="caption">
+								<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
+								<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
+									<span class="cnt_in">
+										<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
+										<span class="h4">Капли на холку Дана Ультра для собак и щенков до 5 кг</span>
+										<span class="ig">
+											<img src="/wp-content/themes/theme/assets/img/syspensy-goods/adult_cat.png" width="134" height="216" alt="">
+										</span>
+										<span class="dtt">
+											<span class="vlm">0,4 мл</span>
+											<!-- <span class="vr">Видео-обзор</span> -->
+										</span>
+									</span>
+								</a>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="caption">
+								<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
+								<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
+									<span class="cnt_in">
+										<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
+										<span class="h4">Капли на холку Дана Ультра для собак и щенков до 5 кг</span>
+										<span class="ig">
+											<img src="/wp-content/themes/theme/assets/img/syspensy-goods/adult_cat.png" width="134" height="216" alt="">
+										</span>
+										<span class="dtt">
+											<span class="vlm">0,4 мл</span>
+											<!-- <span class="vr">Видео-обзор</span> -->
+										</span>
+									</span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="nav_blo swiper-pagination"></div>
+				</div>
+			</div>
 		</div>
 	</div>
 
@@ -482,7 +754,7 @@ $advantages = get_field('advantages');
 							<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
 							<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
 								<span class="cnt_in">
-									<span class="h5">Празицид</span>
+									<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
 									<span class="h4">для кошек и котят до 4 кг</span>
 									<span class="ig">
 										<img src="/wp-content/themes/theme/assets/img/complex-goods/dog&puppy_before_4kg.png" width="142" height="224" alt="">
@@ -498,7 +770,7 @@ $advantages = get_field('advantages');
 							<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
 							<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
 								<span class="cnt_in">
-									<span class="h5">Празицид</span>
+									<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
 									<span class="h4">капли на холку Празицид для кошек и более 4 кг</span>
 									<span class="ig">
 										<img src="/wp-content/themes/theme/assets/img/complex-goods/dog&puppy_before_4kg.png" width="142" height="224" alt="">
@@ -514,7 +786,7 @@ $advantages = get_field('advantages');
 							<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
 							<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
 								<span class="cnt_in">
-									<span class="h5">Празицид</span>
+									<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
 									<span class="h4">Капли на холку Празицид для собак и щенков до 5 кг</span>
 									<span class="ig">
 										<img src="/wp-content/themes/theme/assets/img/complex-goods/dog&puppy_before_4kg.png" width="142" height="224" alt="">
@@ -532,7 +804,7 @@ $advantages = get_field('advantages');
 							<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
 							<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
 								<span class="cnt_in">
-									<span class="h5">Празицид</span>
+									<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
 									<span class="h4">Капли на холку Празицид для собак и щенков до 5-10 кг</span>
 									<span class="ig">
 										<img src="/wp-content/themes/theme/assets/img/complex-goods/dog&puppy_before_4kg.png" width="142" height="224" alt="">
@@ -548,7 +820,7 @@ $advantages = get_field('advantages');
 							<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
 							<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
 								<span class="cnt_in">
-									<span class="h5">Празицид</span>
+									<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
 									<span class="h4">Капли на холку Празицид для собак и щенков 10-20 кг</span>
 									<span class="ig">
 										<img src="/wp-content/themes/theme/assets/img/complex-goods/dog&puppy_before_4kg.png" width="142" height="224" alt="">
@@ -564,7 +836,7 @@ $advantages = get_field('advantages');
 							<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
 							<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
 								<span class="cnt_in">
-									<span class="h5">Празицид</span>
+									<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
 									<span class="h4">Капли на холку Празицид для собак и щенков 10-20 кг</span>
 									<span class="ig">
 										<img src="/wp-content/themes/theme/assets/img/complex-goods/dog&puppy_before_4kg.png" width="142" height="224" alt="">
@@ -580,7 +852,121 @@ $advantages = get_field('advantages');
 					</div>
 				</div>
 			</div>
-
+			<div class="blo_mb">
+				<div class="swiper blo_slr">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="caption">
+								<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
+								<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
+									<span class="cnt_in">
+										<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
+										<span class="h4">для кошек и котят до 4 кг</span>
+										<span class="ig">
+											<img src="/wp-content/themes/theme/assets/img/syspensy-goods/adult_cat.png" width="134" height="216" alt="">
+										</span>
+										<span class="dtt">
+											<span class="vlm">0,32 мл</span>
+											<!-- <span class="vr">Видео-обзор</span> -->
+										</span>
+									</span>
+								</a>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="caption">
+								<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
+								<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
+									<span class="cnt_in">
+										<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
+										<span class="h4">капли на холку Дана Ультра для кошек и более 4 кг</span>
+										<span class="ig">
+											<img src="/wp-content/themes/theme/assets/img/syspensy-goods/adult_cat.png" width="134" height="216" alt="">
+										</span>
+										<span class="dtt">
+											<span class="vlm">0,64 мл</span>
+											<!-- <span class="vr">Видео-обзор</span> -->
+										</span>
+									</span>
+								</a>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="caption">
+								<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
+								<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
+									<span class="cnt_in">
+										<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
+										<span class="h4">Капли на холку Дана Ультра для собак и щенков до 5 кг</span>
+										<span class="ig">
+											<img src="/wp-content/themes/theme/assets/img/syspensy-goods/adult_cat.png" width="134" height="216" alt="">
+										</span>
+										<span class="dtt">
+											<span class="vlm">0,4 мл</span>
+											<!-- <span class="vr">Видео-обзор</span> -->
+										</span>
+									</span>
+								</a>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="caption">
+								<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
+								<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
+									<span class="cnt_in">
+										<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
+										<span class="h4">Капли на холку Дана Ультра для собак и щенков до 5 кг</span>
+										<span class="ig">
+											<img src="/wp-content/themes/theme/assets/img/syspensy-goods/adult_cat.png" width="134" height="216" alt="">
+										</span>
+										<span class="dtt">
+											<span class="vlm">0,4 мл</span>
+											<!-- <span class="vr">Видео-обзор</span> -->
+										</span>
+									</span>
+								</a>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="caption">
+								<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
+								<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
+									<span class="cnt_in">
+										<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
+										<span class="h4">Капли на холку Дана Ультра для собак и щенков до 5 кг</span>
+										<span class="ig">
+											<img src="/wp-content/themes/theme/assets/img/syspensy-goods/adult_cat.png" width="134" height="216" alt="">
+										</span>
+										<span class="dtt">
+											<span class="vlm">0,4 мл</span>
+											<!-- <span class="vr">Видео-обзор</span> -->
+										</span>
+									</span>
+								</a>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="caption">
+								<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
+								<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
+									<span class="cnt_in">
+										<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
+										<span class="h4">Капли на холку Дана Ультра для собак и щенков до 5 кг</span>
+										<span class="ig">
+											<img src="/wp-content/themes/theme/assets/img/syspensy-goods/adult_cat.png" width="134" height="216" alt="">
+										</span>
+										<span class="dtt">
+											<span class="vlm">0,4 мл</span>
+											<!-- <span class="vr">Видео-обзор</span> -->
+										</span>
+									</span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="nav_blo swiper-pagination"></div>
+				</div>
+			</div>
 		</div>
 	</div>
 
@@ -601,9 +987,9 @@ $advantages = get_field('advantages');
 					</div>
 					<div class="cols cols02">
 						<ul class="list_dana">
-							<li>Широкий спектр действия против круглых и ленточных глистов</li>
-							<li>Применение с трехнедельного возраста</li>
-							<li>Увеличенный объем для полного курса лечения от глистов</li>
+							<li>Широкий спектр действия против круглых и ленточных гельминтов</li>
+							<li>Точность дозирования на любой вес</li>
+							<li>Подходит животным любых пород</li>
 						</ul>
 					</div>
 				</div>
@@ -613,7 +999,7 @@ $advantages = get_field('advantages');
 							<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
 							<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
 								<span class="cnt_in">
-									<span class="h5">Празицид</span>
+									<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
 									<span class="h4">для дегельминтизации кошек</span>
 									<span class="ig">
 										<img src="/wp-content/themes/theme/assets/img/tablets/cat.png" width="206" height="130" alt="">
@@ -629,7 +1015,7 @@ $advantages = get_field('advantages');
 							<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
 							<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
 								<span class="cnt_in">
-									<span class="h5">Празицид</span>
+									<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
 									<span class="h4">для дегельминтизации собак</span>
 									<span class="ig">
 										<img src="/wp-content/themes/theme/assets/img/tablets/dog.png" width="206" height="130" alt="">
@@ -645,7 +1031,49 @@ $advantages = get_field('advantages');
 
 				</div>
 			</div>
-
+			<div class="blo_mb">
+				<div class="swiper blo_slr">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="caption">
+								<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
+								<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
+									<span class="cnt_in">
+										<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
+										<span class="h4">для кошек и котят до 4 кг</span>
+										<span class="ig">
+											<img src="/wp-content/themes/theme/assets/img/tablets/cat.png" width="190" height="120" alt="">
+										</span>
+										<span class="dtt">
+											<span class="vlm">0,32 мл</span>
+											<!-- <span class="vr">Видео-обзор</span> -->
+										</span>
+									</span>
+								</a>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="caption">
+								<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
+								<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
+									<span class="cnt_in">
+										<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
+										<span class="h4">капли на холку Дана Ультра для кошек и более 4 кг</span>
+										<span class="ig">
+											<img src="/wp-content/themes/theme/assets/img/tablets/dog.png" width="190" height="120" alt="">
+										</span>
+										<span class="dtt">
+											<span class="vlm">0,64 мл</span>
+											<!-- <span class="vr">Видео-обзор</span> -->
+										</span>
+									</span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="nav_blo swiper-pagination"></div>
+				</div>
+			</div>
 		</div>
 	</div>
 </section>
@@ -848,6 +1276,345 @@ $form_subtitle = get_field('form_subtitle');
 <div class="modal-thank">
 	<h2 class="modal-thank__title">Спасибо!</h2>
 	<span class="modal-thank__subtitle">Ваше обращение успешно отправлено</span>
+</div>
+</div>
+
+<!-- Модалка товара -->
+<div id="prs01" class="l_menu">
+	<div class="l_close"></div>
+	<div class="desc_img">
+		<!-- <div class="dbi01"></div> -->
+		<!-- <div class="dbi02"></div>
+		<div class="dbi03"></div> -->
+		<!-- <img src="img/pp4.png" width="339" height="537" alt="" class="w_img w_img01">
+		<img src="img/pp5.png" width="339" height="537" alt="" class="w_img w_img02"> -->
+
+	</div>
+	<div class="l_menu_in">
+		<div class="desc_ovr">
+			<div class="rows">
+				<div class="cols cols01">
+					<div class="desc_img">
+						<!-- <div class="dbi01"></div> -->
+						<div class="dbi02"></div>
+						<div class="dbi03"></div>
+						<div class="modal-goods">
+							<div class="up cols_cards cols_cards01">
+								<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
+									<span class="cnt_in">
+										<img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt="">
+										<span class="h4">для кошек и котят до 4 кг</span>
+										<span class="ig">
+											<img src="/wp-content/themes/theme/assets/img/syspensy-goods/adult_cat.png" width="142" height="224" alt="">
+										</span>
+										<span class="dtt">
+											<span class="vlm">0,32 мл</span>
+										</span>
+									</span>
+								</a>
+							</div>
+							<div class="up cols_cards cols_cards02">
+								<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
+									<span class="cnt_in">
+										<img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt="">
+
+										<span class="h4">для кошек более 4 кг</span>
+										<span class="ig">
+											<img src="/wp-content/themes/theme/assets/img/syspensy-goods/adult_cat.png" width="142" height="224" alt="">
+										</span>
+										<span class="dtt">
+											<span class="vlm">0,64 мл</span>
+										</span>
+									</span>
+								</a>
+							</div>
+							<div class="up cols_cards cols_cards03">
+								<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
+									<span class="cnt_in">
+										<img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt="">
+
+										<span class="h4">для собак и щенков до 5 кг</span>
+										<span class="ig">
+											<img src="/wp-content/themes/theme/assets/img/syspensy-goods/adult_cat.png" width="142" height="224" alt="">
+										</span>
+										<span class="dtt">
+											<span class="vlm">0,4 мл</span>
+										</span>
+									</span>
+								</a>
+							</div>
+							<div class="up cols_cards cols_cards03">
+								<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
+									<span class="cnt_in">
+										<img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt="">
+
+										<span class="h4">для собак и щенков до 5 кг</span>
+										<span class="ig">
+											<img src="/wp-content/themes/theme/assets/img/syspensy-goods/adult_cat.png" width="142" height="224" alt="">
+										</span>
+										<span class="dtt">
+											<span class="vlm">0,4 мл</span>
+										</span>
+									</span>
+								</a>
+							</div>
+							<div class="up cols_cards cols_cards03">
+								<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
+									<span class="cnt_in">
+										<img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt="">
+
+										<span class="h4">для собак и щенков до 5 кг</span>
+										<span class="ig">
+											<img src="/wp-content/themes/theme/assets/img/syspensy-goods/adult_cat.png" width="142" height="224" alt="">
+										</span>
+										<span class="dtt">
+											<span class="vlm">0,4 мл</span>
+										</span>
+									</span>
+								</a>
+							</div>
+						</div>
+
+						<div class="mobile-modal-slider">
+							<div class="swiper modal-slider">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">
+										<div class="caption">
+											<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
+											<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
+												<span class="cnt_in">
+													<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
+													<span class="h4">для кошек и котят до 4 кг</span>
+													<span class="ig">
+														<img src="/wp-content/themes/theme/assets/img/syspensy-goods/adult_cat.png" width="134" height="216" alt="">
+													</span>
+													<span class="dtt">
+														<span class="vlm">0,32 мл</span>
+														<!-- <span class="vr">Видео-обзор</span> -->
+													</span>
+												</span>
+											</a>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="caption">
+											<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
+											<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
+												<span class="cnt_in">
+													<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
+													<span class="h4">капли на холку Дана Ультра для кошек и более 4 кг</span>
+													<span class="ig">
+														<img src="/wp-content/themes/theme/assets/img/syspensy-goods/adult_cat.png" width="134" height="216" alt="">
+													</span>
+													<span class="dtt">
+														<span class="vlm">0,64 мл</span>
+														<!-- <span class="vr">Видео-обзор</span> -->
+													</span>
+												</span>
+											</a>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="caption">
+											<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
+											<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
+												<span class="cnt_in">
+													<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
+													<span class="h4">Капли на холку Дана Ультра для собак и щенков до 5 кг</span>
+													<span class="ig">
+														<img src="/wp-content/themes/theme/assets/img/syspensy-goods/adult_cat.png" width="134" height="216" alt="">
+													</span>
+													<span class="dtt">
+														<span class="vlm">0,4 мл</span>
+														<!-- <span class="vr">Видео-обзор</span> -->
+													</span>
+												</span>
+											</a>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="caption">
+											<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
+											<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
+												<span class="cnt_in">
+													<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
+													<span class="h4">Капли на холку Дана Ультра для собак и щенков до 5 кг</span>
+													<span class="ig">
+														<img src="/wp-content/themes/theme/assets/img/syspensy-goods/adult_cat.png" width="134" height="216" alt="">
+													</span>
+													<span class="dtt">
+														<span class="vlm">0,4 мл</span>
+														<!-- <span class="vr">Видео-обзор</span> -->
+													</span>
+												</span>
+											</a>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="caption">
+											<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
+											<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
+												<span class="cnt_in">
+													<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
+													<span class="h4">Капли на холку Дана Ультра для собак и щенков до 5 кг</span>
+													<span class="ig">
+														<img src="/wp-content/themes/theme/assets/img/syspensy-goods/adult_cat.png" width="134" height="216" alt="">
+													</span>
+													<span class="dtt">
+														<span class="vlm">0,4 мл</span>
+														<!-- <span class="vr">Видео-обзор</span> -->
+													</span>
+												</span>
+											</a>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="caption">
+											<!-- <a data-fancybox href="video/video_t1.mp4" class="rc_lnk"> -->
+											<a data-fancybox1 href="#prs01" class="rc_lnk sw_lnk">
+												<span class="cnt_in">
+													<span class="h5"><img class="little-logo" src="/wp-content/themes/theme/assets/img/Logo_Prasicid.png" alt=""></span>
+													<span class="h4">Капли на холку Дана Ультра для собак и щенков до 5 кг</span>
+													<span class="ig">
+														<img src="/wp-content/themes/theme/assets/img/syspensy-goods/adult_cat.png" width="134" height="216" alt="">
+													</span>
+													<span class="dtt">
+														<span class="vlm">0,4 мл</span>
+														<!-- <span class="vr">Видео-обзор</span> -->
+													</span>
+												</span>
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="modal_pag_block"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="cols cols02 modal-content">
+					<div class="desc">
+						<div class="h5t">Празицид Суспензия</div>
+						<!-- <div class="h4t">
+	                            <span class="btx">капли</span> на холку
+	                        </div> -->
+						<div class="txt">
+							<p>
+								Празицид-суспензию Плюс назначают взрослым собакам и кошкам, щенкам и котятам с профилактической и лечебной целью при желудочно-кишечных нематодозах (токсокароз, токсаскаридоз, унцинариоз, трихоцефалез, анкилостомоз), цестодозах (тениидоз, дипилидиоз, альвеококкоз, эхинококкоз, дифиллоботриоз, мезоцестоидоз), ассоциативных нематодоцестодозных инвазиях и лямблиозе.
+							</p>
+							<div class="ln"></div>
+							<div class="h5">Состав</div>
+							<div class="modal-h6">Празицид-суспензия Плюс для котят, щенков мелких пород и взрослых кошек:</div>
+							<ul>
+								<li>Фипронил — 100 мг/мл,</li>
+								<li>тиаметоксам — 50 мг/мл,</li>
+								<li>пирипроксифен — 50 мг/мл,</li>
+								<li>вспомогательные вещества до 1 мл.</li>
+							</ul>
+
+							<div class="modal-h6">Празицид-суспензия Плюс для щенков средних и крупных пород и взрослых собак:</div>
+							<ul>
+								<li>Фипронил — 100 мг/мл,</li>
+								<li>тиаметоксам — 50 мг/мл,</li>
+								<li>пирипроксифен — 50 мг/мл,</li>
+								<li>вспомогательные вещества до 1 мл.</li>
+							</ul>
+							<div class="ln"></div>
+							<div class="h5">Дозировка и применение</div>
+							<p>Лекарственный препарат применяют животным перорально индивидуально, в утреннее кормление с небольшим количеством корма или вводят принудительно на корень языка с помощью шприца-дозатора в дозах, указанных в таблице. С профилактической целью дегельминтизацию животных проводят один раз в квартал, а также перед каждой вакцинацией.
+							</p>
+							<div class="table_p">
+								<div class="r">
+									<div class="c">Масса животного</div>
+									<div class="c">Объем препарата</div>
+									<div class="c">Кол-во пипеток, шт</div>
+								</div>
+								<div class="r">
+									<div class="c">Собаки и щенки до 5 кг</div>
+									<div class="c">0,5 мл</div>
+									<div class="c">1 пипетка</div>
+								</div>
+								<div class="r">
+									<div class="c">Собаки и щенки от 5 до 10 кг</div>
+									<div class="c">1 мл</div>
+									<div class="c">1 пипетка</div>
+								</div>
+								<div class="r">
+									<div class="c">Собаки и щенки от 5 до 20 кг</div>
+									<div class="c">2 мл</div>
+									<div class="c">1 пипетка</div>
+								</div>
+								<div class="r">
+									<div class="c">Собаки от 20 до 40 кг</div>
+									<div class="c">4 мл</div>
+									<div class="c">1 пипетка</div>
+								</div>
+								<div class="r">
+									<div class="c">Собаки от 40 до 60 кг</div>
+									<div class="c">6 мл</div>
+									<div class="c">Комбинация пипеток</div>
+								</div>
+								<div class="r">
+									<div class="c">Собаки от 40 до 80 кг</div>
+									<div class="c">8 мл</div>
+									<div class="c">Комбинация пипеток</div>
+								</div>
+								<div class="r">
+									<div class="c">Кошки менее 4 кг</div>
+									<div class="c">0,4 мл</div>
+									<div class="c">1 пипетка</div>
+								</div>
+								<div class="r">
+									<div class="c">Кошки более 4 кг</div>
+									<div class="c">0,8 мл</div>
+									<div class="c">1 пипетка</div>
+								</div>
+							</div>
+							<div class="ln"></div>
+							<div class="h5">Противопоказания</div>
+							<p>Противопоказанием к применению является индивидуальная непереносимость компонентов препарата (в том числе в анамнезе). Празицид-суспензию Плюс не следует применять истощенным, больным инфекционными болезнями  и выздоравливающим животным, щенкам и котятам моложе 3-недельного возраста.</p>
+							<div class="ln"></div>
+							<div class="h5">Условия хранения</div>
+							<p>Хранят препарат в закрытой упаковке производителя, в защищенном от прямых солнечных лучей месте, отдельно от продуктов питания и кормов при температуре от 0 ºС до 25 ºС.</p>
+							<div class="ln"></div>
+							<div class="h5">Срок годности</div>
+							<p>Срок годности лекарственного препарата при соблюдении условий хранения в закрытой упаковке производителя — 2 года со дня производства.</p>
+							<div class="ln"></div>
+							<div class="h5">Особенности и преимущества</div>
+							<div class="h6">Высокая эффективность</div>
+							<ul>
+								<li>Широкий спектр действия против наружных паразитов</li>
+								<li>Защита от иксодовых клещей в течение месяца</li>
+								<li>Защита от блох, вшей, власоедов в течение двух месяцев</li>
+								<li>Усиленная формула для борьбы с резистентностью
+									паразитов</li>
+								<li>Прерывание цикла развития блох</li>
+								<li>Лечение и профилактика паразитарных болезней за одно применение</li>
+								<li>Начинает действовать в течение суток после нанесения</li>
+							</ul>
+							<div class="h6">Безопасность</div>
+							<ul>
+								<li>Компоненты работают только на поверхности кожи</li>
+								<li>Применение уже с 10-недельного возраста</li>
+								<li>Широкая линейка дозировок для точного подбора
+									на любой вес животного
+								</li>
+							</ul>
+							<div class="h6">Удобство</div>
+							<ul>
+								<li>Каждая пипетка в индивидуальной упаковке с инструкцией</li>
+								<li>Пипетки открываются без использования ножниц</li>
+								<li>Средство минимально пачкает шерсть и капли быстро
+									распределяются</li>
+								<li>Легкий цитрусовый запах</li>
+								<li>Все средства из линейки Дана Ультра можно комбинировать</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 </div>
 
