@@ -575,10 +575,12 @@ h3 {
 }
 
 .info__main-item-title {
-  font-size: 46rem;
+  font-size: 28rem;
+  font-family: PF Agora Sans Pro;
+  font-style: normal;
   font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.035em;
+  line-height: 134%;
+  letter-spacing: -0.42rem;
   margin-bottom: 20rem;
 }
 
@@ -1169,11 +1171,11 @@ textarea::placeholder {
 .modal__content-banner {
   width: 42%;
   flex-grow: 1;
-  background-color: #E2E9FC;
-  background-image: url("../images/info/modal-banner-bg.svg");
+  background-color: #F7F7F7;
+  background-image: url("../images/info/modal-banner-bg2.svg");
   background-repeat: no-repeat;
   background-size: 100% auto;
-  background-position: 22rem 65rem;
+  background-position: -9rem -67rem;
 }
 
 .modal__content-banner-img {
@@ -1205,10 +1207,12 @@ textarea::placeholder {
 }
 
 .modal__content-text h2 {
-  margin-top: 60rem;
   font-size: 69rem;
+  font-family: PF Agora Sans Pro;
+  font-style: normal;
   font-weight: 700;
   line-height: 95%;
+  letter-spacing: -2.415rem;
   margin-bottom: 60rem;
 }
 
@@ -1218,7 +1222,7 @@ textarea::placeholder {
 
 .modal__content-text hr {
   border-width: 0.5rem;
-  border-color: #5B6BCC;
+  border-color: #ED1D24;
   margin: 40rem 0;
 }
 
@@ -1255,6 +1259,7 @@ textarea::placeholder {
   color: #5B6BCC;
   font-weight: 700;
   margin-bottom: 12rem;
+  display: none;
 }
 
 .modal__title {
@@ -1689,7 +1694,7 @@ textarea::placeholder {
   letter-spacing: -0.015em;
 }
 
-.l_close {
+/* .l_close {
   position: absolute;
   top: 5.573vw;
   right: 1.563vw;
@@ -1732,7 +1737,7 @@ textarea::placeholder {
   height: 0.052vw;
   background: #fff;
   transform: rotate(45deg);
-}
+} */
 
 .modal-goods {
   /* position: relative; */
@@ -1745,6 +1750,18 @@ textarea::placeholder {
   flex-wrap: wrap;
   gap: 24px;
   z-index: 1;
+}
+.cols_cards:hover {
+  transform: translateY(-8rem);
+}
+.cols_cards {
+  transition: transform 0.2s ease-in-out;
+}
+.buy-item {
+  transition: transform 0.2s ease-in-out;
+}
+.buy-item:hover {
+    transform: translateY(-8rem);
 }
 
 .modal-goods .cols_cards {
@@ -1794,8 +1811,8 @@ textarea::placeholder {
 }
 
 .modal-goods .cnt_in .dtt {
-  position: absolute;
-  bottom: 10px;
+  position: relative;
+  bottom: 0;
   color: rgba(99, 99, 99, 0.60);
   font-size: 14rem;
   font-family: Montserrat;
@@ -2072,15 +2089,15 @@ textarea::placeholder {
   display: flex;
 }
 
-#syspensy .rows_cards:first-child .cols_cards01 {
+#syspensy .rows_cards:first-child .cols_cards:first-child {
   margin-top: 200rem;
 }
 
-#syspensy .rows_cards:first-child .cols_cards02 {
+#syspensy .rows_cards:first-child .cols_cards:nth-child(2) {
   margin-top: 100rem;
 }
 
-#syspensy .rows_cards:nth-child(2) .cols_cards02 {
+#syspensy .rows_cards:nth-child(2) .cols_cards:nth-child(2) {
   margin-top: -100rem;
 }
 
@@ -2088,11 +2105,11 @@ textarea::placeholder {
   margin-bottom: 1.25vw;
 }
 
-#syspensy-neo .rows_cards:first-child .cols_cards01 {
+#syspensy-neo .rows_cards:first-child .cols_cards:first-child {
   margin-top: 100rem;
 }
 
-#syspensy-neo .rows_cards:first-child .cols_cards03 {
+#syspensy-neo .rows_cards:first-child .cols_cards:nth-child(3) {
   margin-top: 100rem;
 }
 
@@ -2105,8 +2122,8 @@ textarea::placeholder {
   margin-left: 17.344vw;
 }
 
-#complex .rows_cards:first-child .cols_cards01,
-#complex .rows_cards:first-child .cols_cards02 {
+#complex .rows_cards:first-child .cols_cards:first-child,
+#complex .rows_cards:first-child .cols_cards:nth-child(2) {
   margin-top: 100rem;
 }
 
@@ -2118,12 +2135,12 @@ textarea::placeholder {
   margin-top: 495rem;
 }
 
-#complex-neo .rows_cards:first-child .cols_cards02,
-#complex-neo .rows_cards:first-child .cols_cards03 {
+#complex-neo .rows_cards:first-child .cols_cards:nth-child(2),
+#complex-neo .rows_cards:first-child .cols_cards:nth-child(3) {
   margin-top: 100rem;
 }
 
-#complex-neo .rows_cards:last-child .cols_cards03 {
+#complex-neo .rows_cards:last-child .cols_cards:nth-child(3) {
   margin-top: 100rem;
 }
 
@@ -2209,11 +2226,15 @@ section.goods {
 }
 
 .b_long_ovr .rows_cards_ovr .rc_lnk .h4 {
-  color: #38464c;
-  font: bold 1.146vw/1.198vw PF Agora Sans Pro;
-  letter-spacing: -0.029vw;
+  color: #636363;
+  font-size: 22rem;
+  font-family: PF Agora Sans Pro;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 23rem;
+  letter-spacing: -0.55rem;
   display: block;
-  max-width: 12.188vw;
+  max-width: 13.188vw;
   width: 100%;
   height: 3.594vw;
 }
@@ -2393,13 +2414,13 @@ section.goods {
   display: block;
   width: 100%;
   height: 100%;
-  padding: 0 20rem;
+  padding: 20rem 20rem 15rem ;
 }
 
 .blo_mb .blo_slr .rc_lnk .h5 {
   display: block;
-  padding-top: 20rem;
-  margin-bottom: 0;
+  /* padding-top: 20rem; */
+  margin-bottom: 6rem;
   font: bold 20rem PF Agora Sans Pro;
   letter-spacing: -0.015em;
 }
@@ -3315,8 +3336,8 @@ section.goods {
 
   .modal__content-banner {
     width: 100%;
-    background-color: #E2E9FC;
-    background-image: url("../images/info/modal-banner-bg.svg");
+    background-color: #F7F7F7;
+    background-image: url("../images/info/modal-banner-bg2.svg");
     background-repeat: no-repeat;
     background-size: 100% auto;
     background-position: 15rem 5rem;
@@ -3368,7 +3389,7 @@ section.goods {
 
   .modal__content-text hr {
     border-width: 0.5rem;
-    border-color: #5B6BCC;
+    border-color: #ED1D24;
     margin: 20rem 0;
   }
 
@@ -3874,7 +3895,7 @@ section.goods {
     letter-spacing: -0.29rem;
   }
 
-  .l_close {
+  /* .l_close {
     width: 40.4rem;
     height: 40.4rem;
   }
@@ -3887,7 +3908,7 @@ section.goods {
   .l_close::after {
     width: 25rem;
     height: 5rem;
-  }
+  } */
 
   .modal-goods {
     display: none;
@@ -3960,6 +3981,12 @@ section.goods {
   .l_menu .desc_ovr .rows .desc .table_p {
     margin: 20rem 0 0;
   }
+
+  #prs01 .modal__close {
+    top: 2rem;
+    right: 2rem;
+    position: absolute;
+}
 
 }
 

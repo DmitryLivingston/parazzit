@@ -36,19 +36,23 @@ const modalSlider = new Swiper(".modal-slider", {
 let dmNavLink = document.querySelectorAll(".sw_lnk");
 dmNavLink.forEach((item, index) => {
   item.addEventListener("click", function (e) {
-    console.log("click");
-
     e.preventDefault();
     let attribute = item.getAttribute("href");
     $(attribute).addClass("active");
     $(".pop_ovr").addClass("active");
     let thisTarget = document.querySelector(`${attribute} .l_menu_in`);
-    let bodyScrollBarMenu = Scrollbar.init(thisTarget, {
-      damping: 0.1,
-      //delegateTo: document,
-      alwaysShowTracks: false,
-      continuousScrolling: true,
-    });
+    console.log("clock");
+    if ($(window).width() > 720) {
+      var $closestRow = $(this).closest(".rows_cards_ovr");
+      var $colsCards = $closestRow.find(".cols_cards");
+      $(".modal-goods").empty().append($colsCards.clone());
+    }
+    if ($(window).width() <= 720) {
+      var $closestRow = $(this).closest(".blo_mb");
+      var $colsCards = $closestRow.find(".swiper-slide");
+      $(".mobile-modal-slider .swiper-wrapper").empty().append($colsCards.clone());
+      modalSlider.update()
+    }
   });
 });
 
@@ -59,41 +63,26 @@ $(".l_close").on("click", function (e) {
 });
 
 jQuery(document).ready(function ($) {
-  if ($(".blo_slr").length && $(window).width() < 720) {
+  if ($(".blo_slr").length && $(window).width() <= 720) {
     let bloSlr = document.querySelectorAll(".blo_slr");
-    $(".blo_slr").each(function (el) {
-      let swiperPfo = new Swiper(this, {
+    $(".blo_slr").each(function (index, element) {
+      let swiperPfo = new Swiper(element, {
         loop: true,
-        // centeredSlides: true,
-        // autoplay: {
-        // 	delay: 500000,
-        // 	disableOnInteraction: false
-        // },
         slidesPerView: "1.2",
-        // observer: true,
-        // observeParents: true,
-        // speed: 1600,
         spaceBetween: 10,
         pagination: {
-          el: $(this).find(".nav_blo")[0],
+          el: $(element).find(".nav_blo")[0],
           type: "bullets",
         },
       });
     });
   }
+});
 
-  $("input[type=tel]").inputmask({ mask: "+7 (999) 999-99-99" });
+$("input[type=tel]").inputmask({ mask: "+7 (999) 999-99-99" });
 
-  $(document).on("click", 'a[href^="#"]', function (event) {
-    event.preventDefault();
-
-    $("html, body").animate(
-      {
-        scrollTop: $($.attr(this, "href")).offset().top - 10,
-      },
-      800
-    );
-  });
+$(document).on("click", 'a[href^="#"]', function (event) {
+  event.preventDefault();
 
   $(".open-article").on("click", function () {
     let article = $(this).data("article");
